@@ -2,6 +2,8 @@ package com.powa.detector;
 
 import java.util.List;
 
+import com.powa.detector.model.parser.ParserService;
+
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,7 +18,8 @@ public class ActivityAnalysisStepDefinitions {
 	
 	@Before public void 
 	setup() {
-		analyser = new TimeBasedLogAnalyzer();
+		ParserService parserService = new ParserService();
+		analyser = new TimeBasedLogAnalyzer(parserService);
 	}
 	
 	@Given("^the following activities$") public void 

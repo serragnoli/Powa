@@ -1,9 +1,7 @@
 package com.powa.detector;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,5 +25,5 @@ public class TimeBasedLogAnalyzerTest {
 		analyzer.parseLine("");
 		
 		verify(parserService).parse(anyString());
-	}
+	}	
 }

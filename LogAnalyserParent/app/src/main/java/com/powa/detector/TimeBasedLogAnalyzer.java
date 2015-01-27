@@ -13,6 +13,7 @@ public class TimeBasedLogAnalyzer implements LogAnalyzer {
 	@Override
 	public String parseLine(String line) {
 		parserService.parse(line);
+		
 		return null;
 	}
 }
