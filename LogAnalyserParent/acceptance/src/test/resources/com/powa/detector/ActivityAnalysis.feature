@@ -7,13 +7,13 @@ Scenario: Normal log line
 	Given the following activities
 		||
 	When the activity "30.212.19.124,1420113600,SUCCESS,Thomas.Davenport" is processed
-	Then the analyser will return ""
+	Then the analyser will return null
 		
 Scenario: Failure for the first time
 	Given the following activities
 		||
 	When the activity "30.212.19.125,1420113600,FAILURE,John.Doe" is processed
-	Then the analyser will return ""
+	Then the analyser will return null
 
 Scenario: Fifth failure in less than 5 minutes
 	Given the following activities
@@ -31,4 +31,4 @@ Scenario: Fifth failure after 5 minutes
 		|30.212.19.127,1420113660,FAILURE,Michael.Jackson|
 		|30.212.19.127,1420113720,FAILURE,Michael.Jackson|
 	When the activity "30.212.19.127,1420113901,FAILURE,Michael.Jackson" is processed
-	Then the analyser will return ""
+	Then the analyser will return null
