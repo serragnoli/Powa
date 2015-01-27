@@ -1,13 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-<parent>
-        <groupId>detector</groupId>
-        <artifactId>LogAnalyser</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>detector</groupId>
+		<artifactId>LogAnalyser</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
-    <artifactId>Application</artifactId>
-    <packaging>jar</packaging>
-    <name>Log Analyser - App</name>
+	<artifactId>Application</artifactId>
+	<packaging>jar</packaging>
+	<name>Log Analyser - App</name>
+
+	<properties>
+		<mockito.version>1.9.5</mockito.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>
