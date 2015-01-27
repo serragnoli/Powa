@@ -17,13 +17,16 @@ public class ActivityAnalysisStepDefinitions {
 	}
 	
 	@Given("^the following activities$") public void 
-	receive_line(List<String> lines) {
-		System.out.println(lines);
+	receive_line(List<String> activities) {
+		for (String activity : activities) {
+			analyser.parseLine(activity);
+		}
+		System.out.println(activities);
 	}
 	
-	@When("^the line is processed$") public void
-	invoke_analyzer() {
-		System.out.println("Processing");
+	@When("^the activity \"([^\"]*)\" is processed$") public void
+	invoke_analyzer(String activity) {
+		System.out.println("Processing " + activity);
 	}
 	
 	@Then("^the analyser will return \"([^\"]*)\"") public void
