@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ParseServiceTest {
@@ -25,6 +26,20 @@ public class ParseServiceTest {
 		Activity activity = parserService.parse(LINE);
 		
 		assertThat(activity, is(notNullValue(Activity.class)));
+	}
+	
+	@Test public void 
+	should_return_an_activity_with_ip() {
+		Activity activity = parserService.parse(LINE);
+		
+		assertThat(activity.ip(), is(notNullValue()));
+	}
+	
+	@Ignore @Test public void 
+	should_return_an_activity_with_epoch() {
+		Activity activity = parserService.parse(LINE);
+		
+		assertThat(activity.epoch(), is(notNullValue()));
 	}
 	
 	@Test(expected = IllegalArgumentException.class) public void 
