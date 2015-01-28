@@ -24,6 +24,10 @@ public class ActivityAnalysisStepDefinitions {
 	
 	@Given("^the following activities$") public void 
 	receive_line(List<String> lines) {
+		if(lines == null || lines.isEmpty()) {
+			return;
+		}
+		
 		for (String line : lines) {
 			analyser.parseLine(line);
 		}

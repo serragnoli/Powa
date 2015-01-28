@@ -5,13 +5,13 @@ Feature: Process logs
 
 Scenario: Normal log line
 	Given the following activities
-		||
+		|30.212.19.123,1420113600,SUCCESS,Someone.Else|
 	When the activity "30.212.19.124,1420113600,SUCCESS,Thomas.Davenport" is processed
 	Then the analyser will return null
 		
 Scenario: Failure for the first time
 	Given the following activities
-		||
+		|30.212.19.123,1420113600,FAILURE,Someone.Else|
 	When the activity "30.212.19.125,1420113600,FAILURE,John.Doe" is processed
 	Then the analyser will return null
 
