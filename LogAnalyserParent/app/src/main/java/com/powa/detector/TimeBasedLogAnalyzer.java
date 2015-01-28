@@ -18,8 +18,8 @@ public class TimeBasedLogAnalyzer implements LogAnalyzer {
 	public String parseLine(String line) {
 		Activity activity = parserService.parse(line);
 		
-		hackProtectionService.analyse(activity);
+		String suspiciousIp = hackProtectionService.analyse(activity);
 		
-		return null;
+		return suspiciousIp;
 	}
 }

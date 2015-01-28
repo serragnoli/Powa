@@ -15,7 +15,7 @@ public class Activity {
 	private Action action;
 	private String username;
 
-	Activity(String ip, String epoch, String action, String username) {
+	public Activity(String ip, String epoch, String action, String username) {
 		this.ip = ip;
 		this.date = DateTimeConverter.epochToDate(epoch);
 		this.action = valueOf(action);

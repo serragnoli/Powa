@@ -10,4 +10,16 @@
 	<artifactId>Application</artifactId>
 	<packaging>jar</packaging>
 	<name>Log Analyser - App</name>
+
+	<properties>
+		<apachecommons.version>4.0</apachecommons.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${apachecommons.version}</version>
+		</dependency>
+	</dependencies>
 </project>

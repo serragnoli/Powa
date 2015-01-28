@@ -3,6 +3,7 @@ package com.powa.detector;
 import java.util.List;
 
 import com.powa.detector.model.hackprotection.HackProtectionService;
+import com.powa.detector.model.hackprotection.HackRegistry;
 import com.powa.detector.model.parser.ParserService;
 
 import cucumber.api.java.Before;
@@ -20,7 +21,8 @@ public class ActivityAnalysisStepDefinitions {
 	@Before public void 
 	setup() {
 		ParserService parserService = new ParserService();
-		HackProtectionService hackProtectionService = new HackProtectionService();
+		HackRegistry registry = new HackRegistry();
+		HackProtectionService hackProtectionService = new HackProtectionService(registry);
 		analyser = new TimeBasedLogAnalyzer(parserService, hackProtectionService);
 	}
 	
