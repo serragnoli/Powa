@@ -1,6 +1,6 @@
 Feature: Process logs
 	As a Security Analyst
-	I each line of the log to be verified against suspicious behaviour
+	I want each line of the log to be verified against suspicious behaviour
 	So that I know the IP's that represent a thread to my application
 
 Scenario: Normal log line
