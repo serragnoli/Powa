@@ -30,4 +30,14 @@ public class ActivityTest {
 	should_record_the_epoch() {
 		assertThat(activity.date(), is(epochToDate(EPOCH)));
 	}
+	
+	@Test public void 
+	should_record_the_action() {
+		assertThat(activity.action(), is(Activity.Action.FAILURE));
+	}
+	
+	@Test public void 
+	should_record_the_username() {
+		assertThat(activity.username(), is(USERNAME));
+	}
 }
