@@ -8,6 +8,6 @@ public class ParserService {
 		}
 		
 		String[] tokens = line.split(",");
-		return new Activity(tokens[0]);
+		return new Activity(tokens[0], tokens[1], tokens[2], tokens[3]);
 	}
 }
