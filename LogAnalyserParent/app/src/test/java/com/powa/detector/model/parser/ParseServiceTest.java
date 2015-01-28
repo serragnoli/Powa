@@ -1,9 +1,11 @@
 package com.powa.detector.model.parser;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +24,11 @@ public class ParseServiceTest {
 	should_return_an_activity() {
 		Activity activity = parserService.parse(LINE);
 		
-		Assert.assertThat(activity, is(notNullValue(Activity.class)));
+		assertThat(activity, is(notNullValue(Activity.class)));
+	}
+	
+	@Test(expected = IllegalArgumentException.class) public void 
+	should_throw_exception_when_line_is_null() {
+		parserService.parse(null);
 	}
 }
