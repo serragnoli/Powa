@@ -1,9 +1,10 @@
 package com.powa.detector.model.parser;
 
 import static com.powa.detector.model.parser.Activity.Action.valueOf;
-import static java.lang.Long.parseLong;
 
 import org.joda.time.DateTime;
+
+import com.powa.detector.infra.converters.DateTimeConverter;
 
 public class Activity {
 	
@@ -16,7 +17,7 @@ public class Activity {
 
 	Activity(String ip, String epoch, String action, String username) {
 		this.ip = ip;
-		this.date = new DateTime(parseLong(epoch)*1000);
+		this.date = DateTimeConverter.epochToDate(epoch);
 		this.action = valueOf(action);
 		this.username = username;
 	}
