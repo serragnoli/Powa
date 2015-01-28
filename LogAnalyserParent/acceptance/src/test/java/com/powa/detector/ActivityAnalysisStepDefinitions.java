@@ -23,15 +23,15 @@ public class ActivityAnalysisStepDefinitions {
 	}
 	
 	@Given("^the following activities$") public void 
-	receive_line(List<String> activities) {
-		for (String activity : activities) {
-			analyser.parseLine(activity);
+	receive_line(List<String> lines) {
+		for (String line : lines) {
+			analyser.parseLine(line);
 		}
 	}
 	
 	@When("^the activity \"([^\"]*)\" is processed$") public void
-	invoke_analyzer(String activity) {
-		result = analyser.parseLine(activity);
+	invoke_analyzer(String line) {
+		result = analyser.parseLine(line);
 	}
 	
 	@Then("^the analyser will return \"([^\"]*)\"") public void

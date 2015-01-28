@@ -1,10 +1,8 @@
 package com.powa.detector.model.parser;
 
-import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
