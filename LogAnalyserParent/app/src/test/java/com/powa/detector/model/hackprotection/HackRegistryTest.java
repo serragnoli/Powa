@@ -13,7 +13,7 @@ import com.powa.detector.model.parser.Activity;
 public class HackRegistryTest {
 
 	private static final Activity SUCCESSFUL_ACTIVITY = new Activity("30.212.19.124","1336129421","SUCCESS","Thomas.Davenport");
-	private static final Activity FAILED_ACTIVITY = new Activity("30.212.19.125","1336129422","FAILURE","John.Doe");;
+	private static final Activity FAILED_ACTIVITY = new Activity("30.212.19.125","1336129422","FAILURE","John.Doe");
 	
 	private HackRegistry registry;
 	
