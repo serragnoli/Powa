@@ -47,7 +47,7 @@ public class ActivityAnalysisStepDefinitions {
 	validate_return(String expected) {
 		String myExpected = expected;
 		//hack to make it null since it's unknown how to pass null in Cucumber
-		if(expected.isEmpty()) {
+		if(expected.equals("null")) {
 			myExpected = null;
 		}
 		assertThat(result, is(myExpected));
