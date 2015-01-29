@@ -3,6 +3,8 @@ package com.powa.detector.model.parser;
 import static com.powa.detector.model.parser.Activity.Action.FAILURE;
 import static com.powa.detector.model.parser.Activity.Action.valueOf;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+
 public class Activity {
 
 	enum Action {
@@ -50,5 +52,10 @@ public class Activity {
 		boolean arisenSuspicion = absoluteDifference <= SUSPICION_AWARENESS_AT;
 
 		return arisenSuspicion;
+	}
+
+	@Override
+	public String toString() {
+		return new ReflectionToStringBuilder(this).toString();
 	}
 }

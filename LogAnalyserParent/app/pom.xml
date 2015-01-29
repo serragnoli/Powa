@@ -12,14 +12,20 @@
 	<name>Log Analyser - App</name>
 
 	<properties>
-		<apachecommons.version>4.0</apachecommons.version>
+		<apachecollections.version>4.0</apachecollections.version>
+		<apachelang.version>2.6</apachelang.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
-			<version>${apachecommons.version}</version>
+			<version>${apachecollections.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${apachelang.version}</version>
 		</dependency>
 	</dependencies>
 </project>
