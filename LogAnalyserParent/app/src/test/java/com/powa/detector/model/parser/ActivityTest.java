@@ -8,10 +8,13 @@ import org.junit.Test;
 
 @SuppressWarnings("boxing")
 public class ActivityTest {
-
+	
+	private static final Boolean SUSPICIOUS = Boolean.TRUE;
+	private static final Boolean NORMAL = Boolean.FALSE;
 	private static final String IP = "30.212.19.125";
 	private static final String EPOCH = "1420113600";
-	private static final String EXACTLY_FIVE_MINS_LATER = "1420113900";
+	private static final String UPPER_BOUNDARY_OF_SUSPICION_ZONE = "1420113900";
+	private static final String ONE_SECOND_AFTER_SUSPICION_ZONE = "1420113901";
 	private static final String ACTION = "FAILURE";
 	private static final String USERNAME = "John.Doe";
 	
@@ -48,16 +51,30 @@ public class ActivityTest {
 	}
 	
 	@Test public void 
-	should_arise_suspicion_as_it_is_exactly_five_minutes_apart_from_each_other() {
-		Activity exactlyFiveMinsLater = new Activity(IP, EXACTLY_FIVE_MINS_LATER, ACTION, USERNAME);
+	should_arise_suspicion_when_both_activities_have_the_same_epoch() {
+		Activity sameEpoch = new Activity(IP, EPOCH, ACTION, USERNAME);
 		
-		assertThat(exactlyFiveMinsLater.withinSuspiciousRange(activity), is(true));
+		assertThat(sameEpoch.withinSuspiciousRange(activity), is(SUSPICIOUS));
+	}
+	
+	@Test public void 
+	should_arise_suspicion_as_it_is_exactly_five_minutes_apart_from_each_other() {
+		Activity exactlyFiveMinsLater = new Activity(IP, UPPER_BOUNDARY_OF_SUSPICION_ZONE, ACTION, USERNAME);
+		
+		assertThat(exactlyFiveMinsLater.withinSuspiciousRange(activity), is(SUSPICIOUS));
 	}
 	
 	@Test public void 
 	should_arise_suspicion_as_it_is_exactly_five_minutes_apart_from_each_other_inverted() {
-		Activity exactlyFiveMinsLater = new Activity(IP, EXACTLY_FIVE_MINS_LATER, ACTION, USERNAME);
+		Activity exactlyFiveMinsLater = new Activity(IP, UPPER_BOUNDARY_OF_SUSPICION_ZONE, ACTION, USERNAME);
 		
-		assertThat(activity.withinSuspiciousRange(exactlyFiveMinsLater), is(true));		
+		assertThat(activity.withinSuspiciousRange(exactlyFiveMinsLater), is(SUSPICIOUS));		
+	}
+	
+	@Test public void 
+	should_be_normal_if_activity_one_second_greater_than_five_minutes_apart_from_each_other() {
+		Activity oneSecondBeforeSuspicionZone = new Activity(IP, ONE_SECOND_AFTER_SUSPICION_ZONE, ACTION, USERNAME);
+		
+		assertThat(activity.withinSuspiciousRange(oneSecondBeforeSuspicionZone), is(NORMAL));
 	}
 }

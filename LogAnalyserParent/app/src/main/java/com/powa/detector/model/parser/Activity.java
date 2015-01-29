@@ -4,11 +4,13 @@ import static com.powa.detector.model.parser.Activity.Action.FAILURE;
 import static com.powa.detector.model.parser.Activity.Action.valueOf;
 
 public class Activity {
-	
-	enum Action{SUCCESS, FAILURE}
-	
+
+	enum Action {
+		SUCCESS, FAILURE
+	}
+
 	private static final int SUSPICION_AWARENESS_AT = 300;
-	
+
 	private String ip;
 	private Long epoch;
 	private Action action;
@@ -44,9 +46,9 @@ public class Activity {
 	public boolean withinSuspiciousRange(Activity ofActivity) {
 		long difference = epoch.longValue() - ofActivity.date().longValue();
 		long absoluteDifference = Math.abs(difference);
-		
+
 		boolean arisenSuspicion = absoluteDifference <= SUSPICION_AWARENESS_AT;
-		
+
 		return arisenSuspicion;
 	}
 }
