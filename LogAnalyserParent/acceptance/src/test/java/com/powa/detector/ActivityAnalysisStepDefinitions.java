@@ -1,5 +1,8 @@
 package com.powa.detector;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import java.util.List;
 
 import com.powa.detector.model.hackprotection.HackProtectionService;
@@ -10,8 +13,6 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class ActivityAnalysisStepDefinitions {
 
@@ -44,6 +45,11 @@ public class ActivityAnalysisStepDefinitions {
 	
 	@Then("^the analyser will return \"([^\"]*)\"") public void
 	validate_return(String expected) {
-		assertThat(result, is(expected));
+		String myExpected = expected;
+		//hack to make it null since it's unknown how to pass null in Cucumber
+		if(expected.isEmpty()) {
+			myExpected = null;
+		}
+		assertThat(result, is(myExpected));
 	}
 }
