@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
+@Deprecated
 @SuppressWarnings("boxing")
 public class DateTimeConverterTest {
 

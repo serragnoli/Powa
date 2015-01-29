@@ -1,6 +1,5 @@
 package com.powa.detector.model.parser;
 
-import static com.powa.detector.infra.converters.DateTimeConverter.epochToDate;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -30,7 +29,7 @@ public class ActivityTest {
 	
 	@Test public void 
 	should_record_the_epoch() {
-		assertThat(activity.date(), is(epochToDate(EPOCH)));
+		assertThat(activity.date(), is(Long.valueOf(EPOCH)));
 	}
 	
 	@Test public void 
@@ -49,9 +48,16 @@ public class ActivityTest {
 	}
 	
 	@Test public void 
-	should_be_within_five_minutes_from_each_other() {
+	should_arise_suspicion_as_it_is_exactly_five_minutes_apart_from_each_other() {
 		Activity exactlyFiveMinsLater = new Activity(IP, EXACTLY_FIVE_MINS_LATER, ACTION, USERNAME);
 		
 		assertThat(exactlyFiveMinsLater.withinSuspiciousRange(activity), is(true));
+	}
+	
+	@Test public void 
+	should_arise_suspicion_as_it_is_exactly_five_minutes_apart_from_each_other_inverted() {
+		Activity exactlyFiveMinsLater = new Activity(IP, EXACTLY_FIVE_MINS_LATER, ACTION, USERNAME);
+		
+		assertThat(activity.withinSuspiciousRange(exactlyFiveMinsLater), is(true));		
 	}
 }

@@ -4,6 +4,7 @@ import static java.lang.Long.parseLong;
 
 import org.joda.time.DateTime;
 
+@Deprecated
 public class DateTimeConverter {
 
 	public static long epochToMillis(String epoch) {
