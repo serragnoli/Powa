@@ -21,6 +21,7 @@ public class HackRegistry {
 			final String ip = activity.ip();
 			final CircularFifoQueue<Activity> queue = buffer.get(ip);
 			
+			//TODO: Replace by Chain Of Responsibility
 			if(queue == null || queue.isEmpty()) {
 				CircularFifoQueue<Activity> newQueue = new CircularFifoQueue<Activity>(SIZE_OF_SUSPICION_AWARENESS);
 				newQueue.offer(activity);
